@@ -222,9 +222,23 @@ input, select, textarea {
 		}
 
 /* Container */
+	.image-container {
+		width: 100%;
+		overflow-x: auto;
+		white-space: nowrap;
+		margin-bottom: 40px;
+	}
+
+	.image-container img {
+		display: inline-block;
+		height: 200px;
+		width: 200px;
+		margin-right: 10px;
+	}
 
 	.container {
 		margin: 0 auto;
+		margin-bottom: 40px;
 		max-width: calc(100% - 50px);
 		width: 1200px;
 	}
