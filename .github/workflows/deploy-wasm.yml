@@ -1,0 +1,65 @@
+name: Build & Deploy WASM
+
+permissions: {}
+
+# Run on pushes / pull request merges to main
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  
+  # Allows manual run from Actions tab
+  workflow_dispatch:
+
+# One or more jobs that run sequentially
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          target: wasm32-unknown-unknown
+      
+      - name: Install wasm-pack
+        run: CARGO_TARGET_DIR=`pwd`/target cargo install wasm-pack
+
+      - name: Install npm
+        run: cd www && npm install npm@latest
+      
+      - name: Run Cargo tests
+        run: cargo test --workspace
+      
+      - name: npm build, including WASM compilation
+        run: cd www && npm run build
+      
+      - name: Save WASM dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: www-dist-artifact
+          path: www/dist
+          if-no-files-found: error
+          retention-days: 1
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    # Perform only on push to main
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+
+    steps:
+      - name: Download WASM dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: www-dist-artifact
+          path: to-deploy
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

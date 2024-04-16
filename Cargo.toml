@@ -1,7 +1,10 @@
 [package]
 name = "wasm-terminal"
+description = "Crate to simulate a terminal in a browser with WASM"
 version = "0.1.0"
 authors = ["Daniel <daniel.mestres@upr.edu>"]
+repository = "https://github.com/DanielMestres/DanielMestres.github.io"
+license = "MIT"
 edition = "2018"
 
 [lib]
