@@ -40,7 +40,7 @@ jobs:
       - name: Save WASM dist artifact
         uses: actions/upload-artifact@v4
         with:
-          name: www-dist-artifact
+          name: github-pages
           path: www/dist
           if-no-files-found: error
           retention-days: 1
@@ -66,7 +66,7 @@ jobs:
       - name: Download WASM dist artifact
         uses: actions/download-artifact@v4
         with:
-          name: www-dist-artifact
+          name: github-pages
           path: to-deploy
       
       - name: Deploy to GitHub Pages
