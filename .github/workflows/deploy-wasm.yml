@@ -47,8 +47,12 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
+    # Grant GITHUB_TOKEN the permissions required to make a page
     permissions:
       contents: write
+      pages:  write
+      id-token: write
     
     # Perform only on push to main
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
