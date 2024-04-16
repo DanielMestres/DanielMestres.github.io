@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:wasm": "wasm-pack build --out-dir pkg",
-    "build:webpack": "webpack --config webpack.config.js",
+    "build:webpack": "npx webpack",
     "build": "npm run build:wasm && npm run build:webpack",
     "dev": "webpack-dev-server"
   },
