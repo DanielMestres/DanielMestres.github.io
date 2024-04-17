@@ -38,7 +38,7 @@ jobs:
         run: cd www && npm run build
       
       - name: Save WASM dist artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: www/dist
