@@ -1,14 +1,9 @@
-name: Build & Deploy WASM
+name: Build & Deploy
 
 permissions: {}
 
-# Run on pushes / pull request merges to main
+# Run manually only ...
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  
   # Allows manual run from Actions tab
   workflow_dispatch:
 
