@@ -4,8 +4,8 @@
   "description": "A terminal simulator portfolio page.",
   "main": "index.js",
   "scripts": {
-    "build:wasm": "wasm-pack build --out-dir pkg",
-    "build:webpack": "npx webpack",
+    "build:wasm": "wasm-pack build --out-dir www/pkg",
+    "build:webpack": "webpack --config webpack.config.js",
     "build": "npm run build:wasm && npm run build:webpack",
     "dev": "webpack-dev-server"
   },
