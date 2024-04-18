@@ -1,3 +1,3 @@
-mod terminal;
 mod fs;
+mod screen;
 mod utils;
