@@ -1,7 +1,7 @@
 {
-  "name": "terminal-app",
+  "name": "interactive-app",
   "version": "0.1.0",
-  "description": "A terminal simulator portfolio page.",
+  "description": "An interactive portfolio website",
   "main": "index.js",
   "scripts": {
     "build:wasm": "wasm-pack build --out-dir www/pkg",
@@ -17,9 +17,9 @@
   "author": "Daniel Mestres <daniel.mestres97@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5",
-    "copy-webpack-plugin": "^5.0.0"
+    "webpack": "5.97.1",
+    "webpack-cli": "6.0.1",
+    "webpack-dev-server": "5.2.0",
+    "copy-webpack-plugin": "5.1.1"
   }
 }
