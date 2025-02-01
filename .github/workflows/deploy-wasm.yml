@@ -37,7 +37,6 @@ jobs:
         with:
           name: github-pages
           path: www/dist
-          if-no-files-found: error
           retention-days: 1
   deploy:
     needs: build
